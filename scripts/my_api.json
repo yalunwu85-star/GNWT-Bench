@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "policy": "example placeholders only; replace provider URL, key env vars, and model ids locally"
+  },
+  "defaults": {
+    "profile": "text_default_02468",
+    "judge_profile": "judge_default",
+    "workers": 2,
+    "max_tokens": 512,
+    "timeout": 90
+  },
+  "providers": {
+    "example_provider": {
+      "api": "openai-completions",
+      "baseUrlEnv": "GNWT_API_BASE_URL",
+      "apiKeyEnv": "GNWT_API_KEY",
+      "models": [
+        {
+          "id": "example-chat",
+          "name": "example-chat",
+          "request_model": "example-chat",
+          "canonical_model": "example-chat",
+          "display_name": "Example Chat",
+          "identity_source": "example",
+          "identity_status": "example"
+        }
+      ]
+    }
+  },
+  "experiments": {
+    "text_default_02468": {
+      "modality": "text",
+      "models": [
+        "example_provider/example-chat"
+      ],
+      "levels": [0, 20, 40, 60, 80],
+      "methods": ["delete", "typos", "antonym"],
+      "workers": 2,
+      "timeout": 90,
+      "judge_profile": "judge_default"
+    },
+    "image_default_02468": {
+      "modality": "image",
+      "models": [
+        "example_provider/example-chat"
+      ],
+      "levels": [0, 20, 40, 60, 80],
+      "methods": ["impulse_noise", "shot_noise", "contrast"],
+      "workers": 2,
+      "timeout": 90,
+      "judge_profile": "judge_default"
+    }
+  },
+  "judges": {
+    "judge_default": {
+      "provider": "example_provider",
+      "model": "example-chat",
+      "apiKeyEnv": "GNWT_JUDGE_API_KEY",
+      "max_tokens": 256,
+      "timeout": 90
+    }
+  }
+}

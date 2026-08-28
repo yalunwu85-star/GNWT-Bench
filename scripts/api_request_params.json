@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "eval": "eval_default",
+    "judge": "judge_default"
+  },
+  "profiles": {
+    "eval_default": {
+      "role": "eval",
+      "temperature": 0,
+      "top_p": 1,
+      "max_tokens": 512,
+      "token_limit_field": "max_tokens",
+      "n": 1,
+      "stream": false,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "seed": 20260708,
+      "max_retries": 1,
+      "allow_backup": false,
+      "record_failure": true,
+      "response_format": {
+        "type": "json_object"
+      },
+      "fallback_response_format": {
+        "type": "json_object"
+      }
+    },
+    "judge_default": {
+      "role": "judge",
+      "temperature": 0,
+      "top_p": 1,
+      "max_tokens": 256,
+      "token_limit_field": "max_tokens",
+      "n": 1,
+      "stream": false,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "seed": 20260708,
+      "max_retries": 1,
+      "allow_backup": true,
+      "record_failure": true,
+      "response_format": {
+        "type": "json_object"
+      },
+      "fallback_response_format": {
+        "type": "json_object"
+      }
+    }
+  }
+}

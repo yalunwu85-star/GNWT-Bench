@@ -1,0 +1,19 @@
+{
+  "id": "text_1",
+  "modality": "text",
+  "question_type": "judgment_detection",
+  "question": "Does the input say the lamp is on?",
+  "gt": {
+    "answer": "yes",
+    "scoring_method": "yes_no_exact",
+    "aliases": ["yes"]
+  },
+  "paths": {
+    "original_text": "data/text/text_1/text_1_0.txt",
+    "perturbations": {
+      "delete": "perturbed/text/text_1/delete",
+      "typos": "perturbed/text/text_1/typos",
+      "antonym": "perturbed/text/text_1/antonym"
+    }
+  }
+}

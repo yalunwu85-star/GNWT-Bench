@@ -1,0 +1,19 @@
+Decide whether the model answer is semantically correct for the question compared to the reference answer.
+
+Use only the question, reference answer, and model answer below. Do NOT use external knowledge, memorized facts, or hidden assumptions.
+
+Question: {question}
+Reference answer: {reference_answer}
+Model answer: {model_answer}
+
+Return exactly one JSON object and nothing else. Do not use markdown fences, prose, or a bare 1/0.
+Target JSON shape:
+{"verdict":"1|0|notsure","confidence":0.0}
+
+Rules:
+- verdict "1": model answer is semantically correct or equivalent to the reference answer for this question.
+- verdict "0": model answer is contradicted by, incompatible with, or missing the reference answer.
+- verdict "notsure": the comparison is ambiguous, underspecified, or low confidence.
+- If confidence >= 0.75, output "1" or "0".
+- If confidence < 0.75, output "notsure".
+- confidence is 0.0 to 1.0, linear scale, one decimal

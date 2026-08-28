@@ -1,0 +1,17 @@
+{
+  "id": "image_1",
+  "modality": "image",
+  "question_type": "judgment_detection",
+  "question": "Is a single-color square shown in this image? Answer yes or no.",
+  "gt": {
+    "answer": "yes",
+    "scoring_method": "yes_no_exact",
+    "aliases": ["yes"]
+  },
+  "original_sample": "data/image/image_1/image_1_0.png",
+  "perturbed_samples": {
+    "contrast": "perturbed/image/image_1/contrast",
+    "impulse_noise": "perturbed/image/image_1/impulse_noise",
+    "shot_noise": "perturbed/image/image_1/shot_noise"
+  }
+}

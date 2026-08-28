@@ -1,0 +1,22 @@
+Use only the provided input. Do NOT use external knowledge, common-sense completion, memorized similar questions, or facts not explicitly supported by the input.
+
+Input modality: {modality}
+{input_block}
+
+Question: {question}
+{options_block}
+
+Probe 1: Decide whether the task-relevant key information needed to answer the question is accessible in the input. Answer "yes" or "no"; this is not a general readability judgment.
+Probe 2: Choose the single best option strictly supported by the input. If options are labeled A/B/C/D, output only the option label, not the option text. If evidence is incomplete, still choose the best-supported option from the input only.
+Do not output "unknown". If there is not enough information to answer, make your best guess or choose the option you think is closest.
+
+Return exactly one JSON object and nothing else. Do not use markdown fences or explanations.
+Target JSON shape:
+{"probe1_answer":"yes|no","probe1_confidence":0.0,"answer":"...","confidence":0.0}
+The value of probe1_answer must be exactly "yes" or "no"; partial is not allowed.
+All four fields are required. Do not omit confidence.
+
+Confidence rules:
+- probe1_confidence: 0.0 = completely uncertain whether the key information is accessible, 1.0 = completely certain.
+- confidence: 0.0 = uncertain task guess, 1.0 = deterministic support from the input.
+- Use one decimal place and a linear scale.

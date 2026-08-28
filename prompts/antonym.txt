@@ -1,0 +1,17 @@
+Return one English replacement word for a text perturbation.
+
+Target word: {word}
+Broad part of speech: {pos}
+
+Use only the target word and broad part of speech. Do not use the original passage context, the question, or the expected answer.
+
+Rules:
+- Prefer a clear antonym of the target word.
+- If no clear antonym is available, return one common English word with the same broad part of speech and clearly different meaning.
+- Return a single word only; no phrase, explanation, punctuation, or inflected sentence.
+
+Return exactly one JSON object and nothing else. Do not use markdown fences or explanations.
+Target JSON shape:
+{"word":"...","source":"antonym|different","confidence":0.0}
+
+Confidence rule: 0.0 = pure guess, 1.0 = fully certain, linearly scaled by how reliable the replacement is, one decimal place.

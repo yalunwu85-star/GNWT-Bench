@@ -1,0 +1,8 @@
+.env
+**/.env
+my_api.local.json
+**/__pycache__/
+*.pyc
+.DS_Store
+results/
+examples/mini/results/

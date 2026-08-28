@@ -1,0 +1,28 @@
+Use only the provided text. Do NOT use external knowledge, common-sense completion, memorized similar questions, or facts not explicitly supported by the text.
+
+Input modality: text
+{input_block}
+
+Question: {question}
+{options_block}
+
+Probe 1: Decide whether the task-relevant textual evidence needed to answer the question is accessible in the input. Answer "yes" or "no"; this is not a general readability judgment.
+Probe 2: Return the exact evidence ID strictly supported by the text.
+
+Evidence IDs are already shown in square brackets in the input, such as [Title#0].
+Return the evidence ID exactly as shown, without the square brackets, for example Title#0.
+Do not create your own sentence numbering.
+Do not split sentences yourself.
+If multiple evidence sentences are needed, separate IDs with "; ".
+Do not output "unknown". If there is not enough information to answer, make your best guess by choosing the closest evidence ID or combination of IDs already shown in the input. Do not invent an ID.
+
+Return exactly one JSON object and nothing else. Do not use markdown fences or explanations.
+Target JSON shape:
+{"probe1_answer":"yes|no","probe1_confidence":0.0,"answer":"...","confidence":0.0}
+The value of probe1_answer must be exactly "yes" or "no"; partial is not allowed.
+All four fields are required. Do not omit confidence.
+
+Confidence rules:
+- probe1_confidence: 0.0 = completely uncertain whether the key textual evidence is accessible, 1.0 = completely certain.
+- confidence: 0.0 = weak evidence-location guess, 1.0 = exact explicit evidence match.
+- Use one decimal place and a linear scale.
